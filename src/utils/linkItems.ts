@@ -1,14 +1,16 @@
-const linkItems = [
-	{ name: 'Αρχική', href: '/' },
-	{ name: 'Πλεονεκτήματα', href: '/why-choose-us' },
-	{
-		name: 'FAQ',
-		href: '/faq'
-	},
+import { base } from '$app/paths';
 
-	{ name: 'Τιμοκατάλογος', href: '/pricing' },
-	{ name: 'Πελατολόγιο', href: '/#clients' },
-	{ name: 'Επικοινωνία', href: '/contact' }
+const linkItems = [
+  { name: 'Αρχική', href: base },
+  { name: 'Πλεονεκτήματα', href: `${base}/why-choose-us` },
+  {
+    name: 'FAQ',
+    href: '/faq',
+  },
+
+  { name: 'Τιμοκατάλογος', href: `${base}/pricing` },
+  { name: 'Πελατολόγιο', href: `${base}/#clients` },
+  { name: 'Επικοινωνία', href: `${base}/contact` },
 ];
 
 export default linkItems;
