@@ -2,7 +2,7 @@
 	import type { CustomButtonProps } from './CustomButton.types';
 
 	export let buttonLabel: CustomButtonProps['label'] = 'Button';
-	export let type: CustomButtonProps['type'];
+	export let type: CustomButtonProps['type'] = "button";
 	export let onClick: CustomButtonProps['onClick'];
 	export let className: CustomButtonProps['className'] = '';
 </script>

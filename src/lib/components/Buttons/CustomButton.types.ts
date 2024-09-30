@@ -1,6 +1,6 @@
 export interface CustomButtonProps {
-	label: string;
-	type: 'button';
-	onClick: () => void;
-	className?: string;
+  label: string;
+  type: 'button';
+  onClick?: (event: MouseEvent) => void;
+  className?: string;
 }
