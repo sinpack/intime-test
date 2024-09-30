@@ -54,6 +54,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/adapter-node": "^5.2.5",
     "clsx": "^2.1.1"
   }
 }
