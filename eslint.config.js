@@ -4,11 +4,11 @@ import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default [
 	eslint.configs.recommended,
 	...tseslint.configs.recommended,
 	...svelte.configs['flat/recommended'],
-	prettier,
+	prettier, // Add prettier to disable conflicting ESLint rules
 	...svelte.configs['flat/prettier'],
 	{
 		languageOptions: {
@@ -29,4 +29,4 @@ export default tseslint.config(
 	{
 		ignores: ['build/', '.svelte-kit/', 'dist/']
 	}
-);
+];
