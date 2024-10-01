@@ -1,7 +1,23 @@
-<script>
+<script lang="ts">
   import FeatureCard from './FeatureCard.svelte';
   import { features } from './features';
   import clsx from 'clsx';
+  import { onMount } from 'svelte';
+
+  const featureCardsArray: HTMLDivElement[] = [];
+  onMount(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+
+      featureCardsArray.forEach((featureCard) => observer.observe(featureCard));
+      return () => featureCardsArray.forEach((featureCard) => observer.unobserve(featureCard));
+    });
+  });
 </script>
 
 <section class="clip-custom bg-[#DADADA] clip-features">
@@ -11,7 +27,7 @@
     {#each features as { imageUrl, title, description }, index (index)}
       <div
         class={clsx({
-          'lg:col-span-2 md:col-span-2': true,
+          'lg:col-span-2 md:col-span-2 hover:scale-110 duration-500': true,
           'sm:col-span-2 md:col-span-1': index === 4,
           'md:col-start-2': index === 3,
         })}
