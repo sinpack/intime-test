@@ -6,8 +6,12 @@
   import NavigationButton from '$lib/components/Buttons/NavigationButton.svelte';
   import pinakas1 from '$lib/assets/pinakas1.webp';
   import pinakas2 from '$lib/assets/pinakas2.webp';
+  import mobile from '$lib/assets/mobile.webp';
+  import pattern from '$lib/assets/pattern.webp';
+  import CircularMenu from '$lib/components/CircularMenu/CircularMenu.svelte';
 
   const firstThreeItems = accordionData.slice(0, 3);
+  const fiveLastItems = accordionData.slice(3, 8);
 </script>
 
 <main>
@@ -49,7 +53,12 @@
       </div>
       <div class="py-5 basis-3/5">
         {#each firstThreeItems as accordion, index (index)}
-          <Accordion open={false} header={accordion.header} details={accordion.details} />
+          <Accordion
+            open={false}
+            header={accordion.header}
+            details={accordion.details}
+            headerColor="text-primary-red"
+          />
         {/each}
         <div class="flex flex-col sm:flex-row w-full mt-2.5 space-x-5">
           <img
@@ -65,5 +74,47 @@
         </div>
       </div>
     </div>
+  </section>
+  <hr class="my-10 mx-2.5 h-[1px] border-t-0 bg-[#A4A4AC]" />
+  <section class="container mx-auto px-48 py-5">
+    <div class="flex flex-col">
+      <h2
+        class="text-[34px] font-light text-primary-red text-pretty border-l-[5px] border-primary-red pl-5"
+      >
+        ALERTS -Υπενθυμίσεις λογισμικού
+      </h2>
+      <div class="flex w-full pt-5 pb-2.5">
+        <div class="basis-1/2">
+          {#each fiveLastItems as accordion, index (index)}
+            <Accordion
+              open={false}
+              header={accordion.header}
+              details={accordion.details}
+              headerColor="text-primary-red"
+            />
+          {/each}
+        </div>
+        <div class="flex w-full basis-1/2">
+          <img
+            class="max-w-full h-full object-cover shadow-2xl drop-shadow-xl"
+            src={mobile}
+            alt="Διαχείριση πίνακα"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-background-green py-10">
+    <hr class="mx-2.5 h-[1px] border-t-0 bg-white" />
+    <h2 class="text-white text-center py-20 text-[27px] font-light">
+      Το Ελληνικό Λογισμικό που προσαρμόζεται στις ανάγκες σας
+    </h2>
+    <hr class="mx-2.5 h-[1px] border-t-0 bg-white" />
+  </section>
+  <h2 class="p-20 mt-10 text-primary-purple text-center text-[33px] font-light tracking-normal">
+    Ανακαλύψτε κάποιες από τις δυνατότητες του <strong>Intime Plus</strong>
+  </h2>
+  <section class="bg-cover h-screen mx-auto container" style="background-image: url({pattern});">
+    <div class="flex justify-center"><CircularMenu /></div>
   </section>
 </main>

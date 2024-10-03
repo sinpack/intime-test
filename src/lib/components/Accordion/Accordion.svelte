@@ -4,23 +4,23 @@
   import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
   import type { AccordionProps } from './AccordionProps';
+  import clsx from 'clsx';
 
   export let open: AccordionProps['open'] = false;
   export let header: AccordionProps['header'] = '';
   export let details: AccordionProps['details'] = [];
-
+  export let headerColor: AccordionProps['headerColor'];
   const handleToggle = () => (open = !open);
 </script>
 
 <div>
   <div class="flex items-center cursor-pointer">
     <button
-      class="ml-4 flex items-center py-2.5"
-      class:text-primary-green={open}
+      class={clsx({ 'ml-4 flex items-center py-2.5': true, [headerColor]: open })}
       on:click={handleToggle}
     >
       <Fa icon={faCaretRight} rotate={open ? -90 : 0} class="flex items-center px-1" />
-      <span class="flex-1 text-lg pl-2.5">
+      <span class="flex-1 text-lg pl-2.5 text-left leading-tight">
         {header}
       </span>
     </button>
