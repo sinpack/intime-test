@@ -37,3 +37,8 @@ p {
 .transition-500 {
   @apply transition-all duration-500 ease-in-out;
 }
+
+.filter-white:hover {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7445%) hue-rotate(139deg)
+    brightness(111%) contrast(112%);
+}
