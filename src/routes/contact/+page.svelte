@@ -1,11 +1,12 @@
 <script lang="ts">
+  import type { ActionData } from './$types';
+  import type { SocialIcon } from '$lib/interfaces';
+
   import Divider from '$lib/components/Divider.svelte';
   import { faFacebookF, faInstagramSquare, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
   import Fa from 'svelte-fa';
   import whiteLogo from '$lib/assets/white_orbit.webp'; // Import the white logo
-  import type { SocialIcon } from '$lib/interfaces';
   import ContactForm from '$lib/components/ContactForm.svelte';
-  import type { ActionData } from './$types';
 
   export let form: ActionData;
 
@@ -17,7 +18,7 @@
 </script>
 
 <section>
-  <div class="container mx-auto flex flex-col md:flex-row px-50 py-10 space-x-5">
+  <div class="container mx-auto flex flex-col md:flex-row px-50 py-10">
     <div class="flex flex-col px-5 basis-1/2">
       <div class="flex flex-col items-center space-y-5">
         <h2 class="flex w-full py-1 text-secondary-green text-3xl font-light justify-center">
