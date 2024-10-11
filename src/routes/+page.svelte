@@ -2,13 +2,13 @@
   import Hero from '$lib/components/Hero.svelte';
   import Features from '$lib/components/Feature/Feature.svelte';
   import Accordion from '$lib/components/Accordion/Accordion.svelte';
-  import { accordionData } from '../utils/accordionData';
   import NavigationButton from '$lib/components/Buttons/NavigationButton.svelte';
   import pinakas1 from '$lib/assets/pinakas1.webp';
   import pinakas2 from '$lib/assets/pinakas2.webp';
   import mobile from '$lib/assets/mobile.webp';
   import pattern from '$lib/assets/pattern.webp';
   import CircularMenu from '$lib/components/CircularMenu/CircularMenu.svelte';
+  import { accordionData } from '../utils/accordionData';
 
   const firstThreeItems = accordionData.slice(0, 3);
   const fiveLastItems = accordionData.slice(3, 8);
