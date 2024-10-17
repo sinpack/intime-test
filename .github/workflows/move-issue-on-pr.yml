@@ -1,0 +1,40 @@
+name: Move issue to 'In Review' on PR opened
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  move_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move linked issue to 'In Review' column
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const projectId = 'PVT_kwHOA-Ov8M4AqXiv'; // Replace with your project ID
+            const inReviewColumnId = 'PVTFSV_lQHOA-Ov8M4AqXivzgT9nAfODm2ypg'; // Replace with the "In Review" column ID
+            const issueNumber = context.payload.pull_request.body.match(/#(\d+)/)[1];
+
+            // Fetch the issue details to get the project card
+            const { data: issue } = await github.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber
+            });
+
+            // Check if the issue is linked to a project
+            if (!issue.project_cards || issue.project_cards.length === 0) {
+              console.log(`Issue #${issueNumber} is not linked to any project cards.`);
+              return;
+            }
+
+            // Move the project card to the 'In Review' column
+            const cardId = issue.project_cards[0].id; // Get the ID of the first project card linked to the issue
+            await github.projects.moveCard({
+              card_id: cardId,
+              column_id: inReviewColumnId,
+              position: 'top'
+            });
+
+            console.log(`Moved issue #${issueNumber} to 'In Review' column.`);
