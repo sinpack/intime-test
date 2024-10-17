@@ -22,7 +22,7 @@
   class="sticky top-0 z-50 bg-white px-10 mx-auto flex items-center w-full py-2.5 transition-shadow"
   class:shadow-lg={isScrolled}
 >
-  <div class="flex items-center justify-center px-5 h-28">
+  <div class="flex items-center justify-center px-5 h-32">
     <img class="object-contain h-full" src={logo} alt="Intime Logo" />
   </div>
   <nav class="flex w-full">
